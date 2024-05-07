@@ -162,5 +162,3 @@ if not os.path.exists(output_directory):
 # We now can save the JSON file in the directory
 with open(os.path.join(output_directory, "Results.json"), "w") as outfile:
     json.dump(results, outfile)
-
-
