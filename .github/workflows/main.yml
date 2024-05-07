@@ -17,6 +17,16 @@ jobs:
       uses: actions/setup-python@v2
       with:
         python-version: '3.x'
+
+    - name: Instalar dependencias
+      run: |
+        python -m spacy download es_core_news_sm
+        pip install gensim nltk scikit-learn sumy
+
+    - name: Descargar recursos adicionales de NLTK
+      run: |
+        python -c "import nltk; nltk.download('punkt')"
+        python -c "import nltk; nltk.download('stopwords')"
         
     - name: Ejecutar programa
       run: python Code/trabajo_nlp.py --json_file=Data/uab_summary_2024_all.json
