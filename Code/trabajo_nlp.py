@@ -17,9 +17,6 @@ import numpy as np
 import json
 import argparse
 
-nltk.download('punkt')
-nltk.download('stopwords')
-
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--json_file', type=str, help='Path to the JSON file')
