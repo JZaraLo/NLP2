@@ -29,5 +29,9 @@ jobs:
         python -c "import nltk; nltk.download('punkt')"
         python -c "import nltk; nltk.download('stopwords')"
         
+    - name: Descargar networkx
+      run: |
+          pip install networkx
+        
     - name: Ejecutar programa
       run: python Code/trabajo_nlp.py --json_file=Data/uab_summary_2024_all.json
