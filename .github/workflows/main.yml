@@ -39,4 +39,4 @@ jobs:
     - name: Save Results file
       run: |
         mkdir -p Results
-        cp path/to/generated/file.json Results/results.json
+        cp Results/resultados.json Results/results.json
