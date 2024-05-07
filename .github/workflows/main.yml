@@ -38,5 +38,5 @@ jobs:
 
     - name: Crear archivo de resultados
       run: |
-        echo '{"resultados": "ejemplo"}' > Results/resultados.json
+        python generar_resultados.py Data/uab_summary_2024_all.json > Results/resultados.json
         
