@@ -33,6 +33,9 @@ jobs:
       run: |
           pip install networkx
 
+    - name: Crear carpeta de resultados
+      run: mkdir -p Results
+
     - name: Create results file
       run: |
         python generar_resultados.py Data/uab_summary_2024_all.json > Results/Results.json
