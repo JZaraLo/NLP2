@@ -25,6 +25,15 @@ jobs:
         pip install gensim nltk scikit-learn sumy
         pip install networkx
 
+    - name: Download additional resources of NLTK
+      run: |
+        python -c "import nltk; nltk.download('punkt')"
+        python -c "import nltk; nltk.download('stopwords')"
+
+    - name: Download networkx
+      run: |
+          pip install networkx
+
     - name: Crear carpeta de resultados
       run: mkdir -p Results
 
