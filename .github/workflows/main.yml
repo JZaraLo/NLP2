@@ -1,4 +1,4 @@
-name: Ejecutar programa
+name: Execute Programm
 
 on:
   push:
@@ -6,32 +6,37 @@ on:
       - main
 
 jobs:
-  ejecutar_programa:
+  execute_programm:
     runs-on: ubuntu-latest
     
     steps:
     - name: Checkout del código
       uses: actions/checkout@v2
       
-    - name: Configurar Python
+    - name: Configure Python
       uses: actions/setup-python@v2
       with:
         python-version: '3.x'
 
-    - name: Instalar dependencias
+    - name: Install dependencies
       run: |
         pip install spacy
         python -m spacy download es_core_news_sm
         pip install gensim nltk scikit-learn sumy
 
-    - name: Descargar recursos adicionales de NLTK
+    - name: Download additional resources of NLTK
       run: |
         python -c "import nltk; nltk.download('punkt')"
         python -c "import nltk; nltk.download('stopwords')"
         
-    - name: Descargar networkx
+    - name: Download networkx
       run: |
           pip install networkx
         
-    - name: Ejecutar programa
+    - name: Execute programm
       run: python Code/trabajo_nlp.py --json_file=Data/uab_summary_2024_all.json
+
+    - name: Save Results file
+      run: |
+        mkdir -p Results
+        cp path/to/generated/file.json Results/results.json
