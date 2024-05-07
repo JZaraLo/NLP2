@@ -1,4 +1,4 @@
-name: Execute Program
+name: Execute Programm
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  execute_program:
+  execute_programm:
     runs-on: ubuntu-latest
     
     steps:
@@ -22,18 +22,11 @@ jobs:
       run: |
         pip install spacy
         python -m spacy download es_core_news_sm
-        pip install gensim nltk scikit-learn sumy networkx
+        pip install gensim nltk scikit-learn sumy
+        pip install networkx
 
-    - name: Download additional resources of NLTK
-      run: |
-        python -c "import nltk; nltk.download('punkt')"
-        python -c "import nltk; nltk.download('stopwords')"
-        
-    - name: Create Results folder
+    - name: Crear carpeta de resultados
       run: mkdir -p Results
 
-    - name: Generate results
-      run: python Code/generar_resultados.py Data/uab_summary_2024_all.json > Results/Results.json
-
-    - name: Execute program
-      run: python Code/trabajo_nlp.py --json_file=Data/uab_summary_2024_all.json --output_file=Results/Results.json
+    - name: Execute programm
+      run: python trabajo_nlp.py --json_file=Data/uab_summary_2024_all.json --output_file=Results/resultados.json
