@@ -153,5 +153,5 @@ results = {
 
 # We write the results on a JSON file
 with open("Results/Results.json", "w") as outfile:
-    json.dump(resultados, outfile)
+    json.dump(results, outfile)
 
