@@ -32,11 +32,11 @@ jobs:
     - name: Download networkx
       run: |
           pip install networkx
+
+    - name: Create results file
+      run: |
+        python generar_resultados.py Data/uab_summary_2024_all.json > Results/Results.json
         
     - name: Execute programm
-      run: python Code/trabajo_nlp.py --json_file=Data/uab_summary_2024_all.json
-
-    - name: Crear archivo de resultados
-      run: |
-        python generar_resultados.py Data/uab_summary_2024_all.json > Results/resultados.json
+      run: python Code/trabajo_nlp.py --json_file=Data/uab_summary_2024_all.json --output_file=Results/Results.json
         
