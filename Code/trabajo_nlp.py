@@ -16,6 +16,7 @@ import string
 import numpy as np
 import json
 import argparse
+import os
 
 
 parser = argparse.ArgumentParser()
@@ -151,7 +152,15 @@ results = {
     "resumen": summary
 }
 
-# We write the results on a JSON file
-with open("Results/Results.json", "w") as outfile:
+output_directory = "Results"
+
+# We verify if the directory already exists
+if not os.path.exists(output_directory):
+    # We create the directory if it doesn't exist
+    os.makedirs(output_directory)
+
+# We now can save the JSON file in the directory
+with open(os.path.join(output_directory, "Results.json"), "w") as outfile:
     json.dump(results, outfile)
+
 
