@@ -29,8 +29,11 @@ jobs:
         python -c "import nltk; nltk.download('punkt')"
         python -c "import nltk; nltk.download('stopwords')"
         
-    - name: Crear carpeta de resultados
+    - name: Create Results folder
       run: mkdir -p Results
 
+    - name: Generate results
+      run: python generar_resultados.py Data/uab_summary_2024_all.json > Results/Results.json
+
     - name: Execute program
-      run: python Code/trabajo_nlp.py --json_file=Data/uab_summary_2024_all.json
+      run: python Code/trabajo_nlp.py --json_file=Data/uab_summary_2024_all.json --output_file=Results/Results.json
