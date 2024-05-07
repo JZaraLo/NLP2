@@ -1,4 +1,4 @@
-name: Execute Programm
+name: Ejecutar programa
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  execute_programm:
+  ejecutar_programa:
     runs-on: ubuntu-latest
     
     steps:
@@ -18,9 +18,5 @@ jobs:
       with:
         python-version: '3.x'
         
-    - name: Instalar dependencias
-      run: |
-        pip install -r requirements.txt
-        
     - name: Ejecutar programa
-      run: python programa_principal.py
+      run: python Code/trabajo_nlp.py Data/uab_summary_2024_all.json
