@@ -1,0 +1,22 @@
+name: Ejecutar programa
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  ejecutar_programa:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout del código
+      uses: actions/checkout@v2
+      
+    - name: Configurar Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+        
+    - name: Ejecutar programa
+      run: python Code/trabajo_nlp.py --json_file=Data/uab_summary_2024_all.json
