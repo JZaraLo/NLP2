@@ -1,13 +1,3 @@
-
-python -m spacy download es_core_news_sm
-
-pip install gensim
-
-pip install nltk scikit-learn sumy
-
-from google.colab import drive
-drive.mount('/content/drive')
-
 import nltk
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
