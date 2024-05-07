@@ -1,0 +1,26 @@
+name: Execute Programm
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  execute_programm:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout del código
+      uses: actions/checkout@v2
+      
+    - name: Configurar Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+        
+    - name: Instalar dependencias
+      run: |
+        pip install -r requirements.txt
+        
+    - name: Ejecutar programa
+      run: python programa_principal.py
