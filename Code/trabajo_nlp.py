@@ -20,6 +20,7 @@ import argparse
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--json_file', type=str, help='Path to the JSON file')
+parser.add_argument('--output_file', type=str, help='Path to the output JSON file')
 args = parser.parse_args()
 
 # Open the JSON file in reading mode
@@ -145,13 +146,13 @@ print(summary)
 print("\n Original Text: ",text)
 
 # We create a dictionarie that will save the results
-resultados = {
+results = {
     "palabras_clave": keywords,
     "resumen": summary
 }
 
 # We write the results on a JSON file
 with open(args.output_file, 'w') as file:
-    json.dump(resultados, file)
+    json.dump(results, file)
 
-print("\nLos resultados se han guardado en el archivo:", args.output_file)
+print("\nThe results have been saved on the file:", args.output_file)
