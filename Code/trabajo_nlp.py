@@ -143,3 +143,15 @@ print("\nGenerated Summary:")
 print(summary)
 
 print("\n Original Text: ",text)
+
+# We create a dictionarie that will save the results
+resultados = {
+    "palabras_clave": keywords,
+    "resumen": summary
+}
+
+# We write the results on a JSON file
+with open(args.output_file, 'w') as file:
+    json.dump(resultados, file)
+
+print("\nLos resultados se han guardado en el archivo:", args.output_file)
