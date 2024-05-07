@@ -152,7 +152,6 @@ results = {
 }
 
 # We write the results on a JSON file
-with open(args.output_file, 'w') as file:
-    json.dump(results, file)
+with open("Results/Results.json", "w") as outfile:
+    json.dump(resultados, outfile)
 
-print("\nThe results have been saved on the file:", args.output_file)
